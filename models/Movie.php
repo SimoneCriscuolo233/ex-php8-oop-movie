@@ -1,24 +1,32 @@
 <?php
+require_once './traits/HasId.php'; 
 require_once __DIR__ . '/Genre.php';
 
 class Movie {
+    
+    use HasId;
+
     public string $title;
     public int $year;
-    public array $genres; 
-   
+    public array $genres;
+
     public function __construct(string $title, int $year, array $genres = []) {
         $this->title = $title;
         $this->year = $year;
         $this->genres = $genres;
+        
+        $this->setId(); 
     }
 
     public function getInfo(){
+      
         $genreNames = [];
         foreach($this->genres as $g){
             $genreNames[] = $g->name;
         }
         $genreString = implode(", ", $genreNames);
-
-        return "{$this->title} ({$this->year}) - Generi: {$genreString}";
+        
+        
+        return "ID: {$this->id} | {$this->title} ({$this->year}) - {$genreString}";
     }
 }
