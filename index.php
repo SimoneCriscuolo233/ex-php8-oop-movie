@@ -1,16 +1,19 @@
 <?php
+require_once __DIR__ . "/models/Movie.php";
 
-require_once './models/Movies.php';
 $genre1 = new Genre('Sci-Fi');
 $genre2 = new Genre('Distopic');
-$movie1 = new Movie('Inception', 2010);
-$movie2 = new Movie('Matrix', 1999,"action");
-$movie1->setGenre($genre1);
-$movie2->setGenre($genre2);
+$genre3 = new Genre('Action');
+
+
+$movie1 = new Movie('Inception', 2010, [$genre1, $genre3]);
+$movie2 = new Movie('Matrix', 1999, [$genre1, $genre2, $genre3]);
+
 echo $movie1->getInfo();
 echo '<br>';
 echo $movie2->getInfo();
-?>  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
