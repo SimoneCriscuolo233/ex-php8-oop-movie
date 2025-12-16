@@ -1,3 +1,16 @@
+<?php
+
+require_once './models/Movies.php';
+$genre1 = new Genre('Sci-Fi');
+$genre2 = new Genre('Distopic');
+$movie1 = new Movie('Inception', 2010);
+$movie2 = new Movie('Matrix', 1999,"action");
+$movie1->setGenre($genre1);
+$movie2->setGenre($genre2);
+echo $movie1->getInfo();
+echo '<br>';
+echo $movie2->getInfo();
+?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +20,6 @@
   <title>PHP Classe Movie</title>
 </head>
 <body>
-  
+
 </body>
 </html>
